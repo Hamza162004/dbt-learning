@@ -1,0 +1,1 @@
+select p.productid, p.productname, sum(o.orderprofit) as totalprofit  from {{ ref('stg_orders') }} as o left join {{ ref('raw_products') }} as p on o.productid = p.productid group by p.productid, p.productname
