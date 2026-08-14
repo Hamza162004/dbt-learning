@@ -1,0 +1,1 @@
+select c.customerid, c.customername, sum(o.orderprofit) as totalprofit  from {{ ref('stg_orders') }} as o left join {{ ref('raw_customers') }} as c on o.customerid = c.customerid group by c.customerid, c.customername
