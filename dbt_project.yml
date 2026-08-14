@@ -37,10 +37,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   global_mart:
-    # Applies to all files under models/example/
     raw:
       +materialized: table
+      +schema: mart_raw
     staging:
       +materialized: view
+      +schema: mart_staging
     reporting:
       +materialized: table
+      +schema: mart_report
